@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#9b1220">
+    <title>Đếm ngược ngày cưới - Xuân Hiểu &amp; Quỳnh Trang</title>
+    <meta name="description" content="Đếm ngược đến Lễ Thành Hôn của Xuân Hiểu và Quỳnh Trang - 11h00 thứ Bảy 28.11.2026">
+    <meta property="og:title" content="Đếm ngược ngày cưới Xuân Hiểu &amp; Quỳnh Trang">
+    <meta property="og:description" content="11h00 thứ Bảy 28.11.2026 - Thành phố Hải Phòng">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Noto+Serif+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="img/doc_xanh_2.jpg">
+    <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+    <main class="page">
+        <!-- Slide ảnh -->
+        <section class="show" aria-label="Ảnh cưới">
+            <div class="slides" id="slides">
+                <img class="slide is-active" src="img/doc_xanh_2.jpg" alt="Xuân Hiểu và Quỳnh Trang">
+                <img class="slide" src="img/doc_do.jpg" alt="" loading="lazy">
+                <img class="slide" src="img/doc_xam_3.jpg" alt="" loading="lazy">
+                <img class="slide" src="img/doc_cam_4.jpg" alt="" loading="lazy">
+                <img class="slide" src="img/ngang_cam_n_1.jpg" alt="" loading="lazy">
+                <img class="slide" src="img/doc_xanh_3.jpg" alt="" loading="lazy">
+                <img class="slide" src="img/doc_xam_1.jpg" alt="" loading="lazy">
+                <img class="slide" src="img/doc_xanh_hon.jpg" alt="" loading="lazy">
+                <img class="slide" src="img/doc_cam_dep.jpg" alt="" loading="lazy">
+            </div>
+            <div class="dots" id="dots" role="tablist" aria-label="Chọn ảnh"></div>
+        </section>
+
+        <!-- Đếm ngược -->
+        <section class="panel" aria-labelledby="title">
+            <div class="xihi rise" style="--d:.1s" aria-hidden="true">囍</div>
+            <p class="script rise" style="--d:.2s">Save the Date</p>
+            <h1 id="title" class="names rise" style="--d:.35s">Xuân Hiểu <span>&amp;</span> Quỳnh Trang</h1>
+            <p class="when rise" style="--d:.5s">Thứ Bảy, 28.11.2026 &middot; 11h00</p>
+
+            <div class="timer rise" style="--d:.65s" id="timer" role="timer" aria-label="Thời gian còn lại đến ngày cưới">
+                <div class="unit"><b id="d">--</b><span>Ngày</span></div>
+                <div class="unit"><b id="h">--</b><span>Giờ</span></div>
+                <div class="unit"><b id="m">--</b><span>Phút</span></div>
+                <div class="unit"><b id="s">--</b><span>Giây</span></div>
+            </div>
+            <p class="status rise" style="--d:.8s" id="status">Còn lại đến Lễ Thành Hôn</p>
+
+            <p class="place rise" style="--d:.95s">
+                Tại gia đình nhà trai<br>
+                Thôn Quý Cao - Xã Nguyên Giáp, Thành phố Hải Phòng
+            </p>
+            <div class="actions rise" style="--d:1.1s">
+                <a class="btn" href="https://xuanhieu-quynhtrang.huahua.id.vn/">Xem thiệp mời</a>
+                <a class="btn btn-ghost" href="https://maps.app.goo.gl/TuKGz4stnhGaFM4Y9" target="_blank" rel="noopener">Chỉ đường</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="petals" aria-hidden="true"></div>
+    <button type="button" id="music" class="music" aria-label="Bật nhạc" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 18V6l10-2v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="18" r="2.5" fill="currentColor"/><circle cx="16.5" cy="16" r="2.5" fill="currentColor"/></svg>
+    </button>
+    <audio id="audio" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
+
+    <script src="app.js?v=1"></script>
+</body>
+</html>
