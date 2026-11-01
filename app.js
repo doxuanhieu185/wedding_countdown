@@ -101,18 +101,35 @@ document.addEventListener('visibilitychange', () => {
     }
 })();
 
-// ---------- Nhạc (trình duyệt chỉ cho phát sau khi bấm) ----------
+// ---------- Nhạc: tự phát ngay khi mở trang ----------
+// Trình duyệt thường chặn tự phát khi chưa có thao tác. Nếu bị chặn, nhạc sẽ
+// phát ở lần chạm / cuộn / bấm phím đầu tiên của người xem.
 const audio = $('audio');
 const musicBtn = $('music');
+
+function setPlaying(on) {
+    musicBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    musicBtn.setAttribute('aria-label', on ? 'Tắt nhạc' : 'Bật nhạc');
+}
+audio.addEventListener('play', () => setPlaying(true));
+audio.addEventListener('pause', () => setPlaying(false));
+
+const unlockEvents = ['pointerdown', 'touchstart', 'keydown', 'wheel', 'scroll'];
+function removeUnlock() {
+    unlockEvents.forEach(e => window.removeEventListener(e, unlock, true));
+}
+function unlock(ev) {
+    if (ev.target === musicBtn || musicBtn.contains(ev.target)) return; // nút nhạc tự xử lý
+    audio.play().then(removeUnlock).catch(() => {});
+}
+function tryAutoplay() {
+    audio.play().catch(() => {
+        unlockEvents.forEach(e => window.addEventListener(e, unlock, true));
+    });
+}
+tryAutoplay();
+
 musicBtn.addEventListener('click', () => {
-    if (audio.paused) {
-        audio.play().then(() => {
-            musicBtn.setAttribute('aria-pressed', 'true');
-            musicBtn.setAttribute('aria-label', 'Tắt nhạc');
-        }).catch(() => {});
-    } else {
-        audio.pause();
-        musicBtn.setAttribute('aria-pressed', 'false');
-        musicBtn.setAttribute('aria-label', 'Bật nhạc');
-    }
+    removeUnlock();
+    if (audio.paused) audio.play().catch(() => {}); else audio.pause();
 });
