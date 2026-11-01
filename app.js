@@ -114,7 +114,8 @@ function setPlaying(on) {
 audio.addEventListener('play', () => setPlaying(true));
 audio.addEventListener('pause', () => setPlaying(false));
 
-const unlockEvents = ['pointerdown', 'touchstart', 'keydown', 'wheel', 'scroll'];
+// Chỉ các sự kiện này được Chrome/Safari tính là thao tác của người dùng (touchstart, scroll, wheel thì không)
+const unlockEvents = ['click', 'touchend', 'pointerup', 'mousedown', 'keydown'];
 function removeUnlock() {
     unlockEvents.forEach(e => window.removeEventListener(e, unlock, true));
 }
